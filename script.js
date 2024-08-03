@@ -1,5 +1,12 @@
 
-let items = ["rock", "paper", "scissors"]
+let items = ["Rock", "Paper", "Scissors"]
+
+function getHumanChoice() {
+
+    let humanChoice = prompt("Rock, paper, scissors: ")
+
+    return humanChoice
+}
 
 function getComputerChoice() {
 
