@@ -1,14 +1,15 @@
 
-let items = ["Rock", "Paper", "Scissors"]
+let items = ["rock", "paper", "scissors"]
 
 let humanScore = 0,
+
     computerScore = 0
 
 function getHumanChoice() {
 
-    let humanChoice = prompt("Rock, paper, scissors: ")
+    let userInput = prompt("Rock, paper, scissors: ")
 
-    return humanChoice
+    return userInput.toLowerCase
 }
 
 function getComputerChoice() {
@@ -16,7 +17,8 @@ function getComputerChoice() {
     return items[Math.floor(Math.random() * 3)]
 }
 
-function determineWinner() {
+function playGame(humanChoice, computerChoice) {
+
 
 
 }
