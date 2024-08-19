@@ -15,6 +15,7 @@ function playRound(input) {
     const computerSelection = getComputerChoice();
     const winner = determineWinner(playerSelection, computerSelection);
     winners.push(winner);
+    
     displayRound(playerSelection,computerSelection,winner)
 }
 
@@ -39,17 +40,37 @@ function determineWinner(humanChoice, computerChoice) {
 }
 
 function displayRound(playerChoice,computerChoice,winner) {
-    console.log("Results: ")
     console.log("Player: ",playerChoice)
-    console.log("Computer :",computerChoice)
+
+    const results = document.createElement("div");
+    results.classList.add("results");
+    results.textContent = 'Results:'
+    
+
+    const selections = document.createElement("div");
+    selections.classList.add("selections");
+    selections.textContent = 'Player Choice: ' + playerChoice + ' | Computer Choice: ' + computerChoice;
+
+    
+    const victor = document.createElement("div");
+    victor.classList.add("victor");
+    
     if (winner == "Tie") {
-        console.log("Tie")
+        victor.textContent = 'Tie.'
     }
     else {
-        console.log(winner," won the round")
+        victor.textContent = winner + ' won the round.'
     }
-    console.log("Player Score: ",playerScore," Computer Score: ",computerScore)
-    console.log("------------------------------------")    
+
+    const score = document.createElement("div");
+    score.classList.add("score");
+    score.textContent = 'Player Score: ' + playerScore + ' | Computer Score: ' + computerScore;
+    
+    displayContainer.appendChild(results);
+    displayContainer.appendChild(selections);
+    displayContainer.appendChild(victor);
+    displayContainer.appendChild(score);
+    
 }
 
 const rockButton = document.querySelector("#rock");
@@ -60,4 +81,8 @@ paperButton.addEventListener("click", () => playRound("paper"));
 
 const scissorsButton = document.querySelector("#scissors");
 scissorsButton.addEventListener("click", () => playRound("scissors"));
+
+const displayContainer = document.querySelector("#display");
+
+
 
