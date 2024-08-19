@@ -4,19 +4,14 @@ const winners = []
 let playerScore = 0,
     computerScore = 0;
 
-function getPlayerChoice() {
-    let input = prompt("rock, paper, scissors").toLowerCase();
-    return input;
-}
-
 function getComputerChoice() {
 
     return items[(Math.floor(Math.random() * items.length))]
 
 }
 
-function playRound() {
-    const playerSelection = getPlayerChoice();
+function playRound(input) {
+    const playerSelection = input;
     const computerSelection = getComputerChoice();
     const winner = determineWinner(playerSelection, computerSelection);
     winners.push(winner);
@@ -57,4 +52,12 @@ function displayRound(playerChoice,computerChoice,winner) {
     console.log("------------------------------------")    
 }
 
-playGame()
+const rockButton = document.querySelector("#rock");
+rockButton.addEventListener("click", () => playRound("rock"));
+
+const paperButton = document.querySelector("#paper");
+paperButton.addEventListener("click", () => playRound("paper"));
+
+const scissorsButton = document.querySelector("#scissors");
+scissorsButton.addEventListener("click", () => playRound("scissors"));
+
