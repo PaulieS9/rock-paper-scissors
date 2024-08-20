@@ -65,12 +65,28 @@ function displayRound(playerChoice,computerChoice,winner) {
     const score = document.createElement("div");
     score.classList.add("score");
     score.textContent = 'Player Score: ' + playerScore + ' | Computer Score: ' + computerScore;
+
+    const divider = document.createElement("div");
+    divider.classList.add("divider");
+    divider.textContent = '---------------------------------------------------'
     
+    const gameWinner = document.createElement("div");
+    gameWinner.classList.add("gameWinner");
+
+    if (playerScore >= 5) {
+        gameWinner.textContent = 'Game over. Player wins!'
+    }
+    else if (computerScore >= 5) {
+        gameWinner.textContent = 'Game over. Computer wins!'
+    }
+
     displayContainer.appendChild(results);
     displayContainer.appendChild(selections);
     displayContainer.appendChild(victor);
     displayContainer.appendChild(score);
-    
+    displayContainer.appendChild(divider);
+    displayContainer.appendChild(gameWinner);
+
 }
 
 const rockButton = document.querySelector("#rock");
